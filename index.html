@@ -5,21 +5,46 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <link rel="stylesheet" href="style.css" />
-    <title>Title</title>
+    <title>Image Color Picker</title>
   </head>
   <body>
     <main>
-      <section class="display-img-container">
-        <div class="load-img"></div>
-        <div id="display-img"></div>
-        <div id="drop-area">
-          <input type="file" id="select-file" accept=".jpg, .png,.PNG, .jpeg" />
+      <aside>
+        <section class="display-img-container">
+          <div class="load-img"></div>
+          <div id="display-img">
+            <p>Drop the image</p>
+          </div>
+        </section>
+        <section class="select-img-container">
+          <div class="select-btns">
+            <button id="start-btn" class="eyeDropper">Select Color</button>
+            <div>
+              <div>
+                <input
+                  name="file"
+                  type="file"
+                  id="select-file"
+                  accept=".jpg, .png,.PNG, .jpeg"
+                  class="select-inp"
+                />
+                <label for="select-file" id="select-file" class="select-btn"
+                  >Choose an image</label
+                >
+              </div>
+            </div>
+          </div>
+        </section>
+      </aside>
+      <aside>
+        <div class="display-colors">
+          <div class="color-codes">
+            <p class="code">RGB:</p>
+            <p class="code">Hex:</p>
+          </div>
+          <div class="color"></div>
         </div>
-      </section>
-      <section class="pic-color-container">
-        <button id="start-btn">Open the eyedropper</button>
-        <span id="result"></span>
-      </section>
+      </aside>
     </main>
     <script src="script.js"></script>
   </body>

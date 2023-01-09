@@ -6,25 +6,58 @@
   box-sizing: border-box;
   font-family: "Nunito", sans-serif;
 }
+body {
+  background-color: #5e00ff;
+}
+main {
+  display: flex;
+  justify-content: space-between;
+  gap: 2em;
+}
 #display-img {
-  height: 300px;
-  width: 350px;
-  border: 1px solid lightgreen;
-  border-radius: 10px;
-  margin: 3em;
+  height: 85vh;
+  width: 70vw;
+  border-radius: 5px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #fff;
+  font-weight: 700;
+  font-size: 2em;
+  margin: 1em;
+  padding: 1em;
 }
 #display-img img {
   width: 100%;
 }
-#copy-file {
-  height: 300px;
-  width: 500px;
-  background-color: lightblue;
-  margin: 3em;
+.select-inp {
+  width: 0.1px;
+  height: 0.1px;
+  opacity: 0;
+  z-index: 1;
 }
-#drop-area {
-  height: 200px;
-  width: 350px;
-  border: 2px solid rgb(31, 216, 31);
-  margin: 3em;
+.select-btns {
+  display: flex;
+  width: 400px;
+  /* height: 200px; */
+  justify-content: center;
+  align-items: center;
+}
+
+.select-btn,
+.eyeDropper {
+  color: #000;
+  font-weight: 700;
+  padding: 0.5em 1.3em;
+  font-size: 1em;
+  background-color: #fff;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: ease-in 0.3s;
+}
+.eyeDropper {
+  border: none;
+}
+.select-btn:hover {
+  transform: scale(1.1);
 }

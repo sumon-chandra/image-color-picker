@@ -27,7 +27,7 @@ function checkBrowserSupported(fileList) {
 
 // ** Drug and Drop the image
 // * Drop area
-dropArea.addEventListener("dragover", (e) => {
+displayImg.addEventListener("dragover", (e) => {
   e.stopPropagation();
   e.preventDefault();
   // * style the drop area
@@ -35,7 +35,7 @@ dropArea.addEventListener("dragover", (e) => {
   e.dataTransfer.dropEffect = "copy";
 });
 // * Drop the image
-dropArea.addEventListener("drop", (e) => {
+displayImg.addEventListener("drop", (e) => {
   e.stopPropagation();
   e.preventDefault();
   const fileList = e.dataTransfer.files;
@@ -51,6 +51,7 @@ function showImage(img) {
   }
   const fileReader = new FileReader();
   fileReader.addEventListener("load", (e) => {
+    displayImg.innerHTML = "";
     const img = document.createElement("img");
     const imgurl = e.target.result;
     img.src = imgurl;
@@ -82,10 +83,12 @@ function handleEyeDropperClick() {
       span.textContent = hexColor;
       handleDisplayColor(hexColor);
     })
-    .catch((e) => {
-      console.log(e);
+    .catch(() => {
+      console.log("Hello problem");
     });
   setTimeout(() => {
     abordController.abort();
   }, 5000);
 }
+
+function handleDisplayColor(color) {}
