@@ -10,10 +10,12 @@
   <body>
     <main>
       <section class="display-img-container">
-        <div id="display-img"></div>
+        <div id="display-img" class="display-img">
+          <img src="./img/demo.jpg" alt="" />
+        </div>
       </section>
       <section class="select-btns">
-        <button id="color-select-btn" class="eyeDropper">Select Color</button>
+        <button id="color-select-btn" class="btn-primary">Select Color</button>
         <div>
           <input
             name="file"
@@ -22,12 +24,16 @@
             accept=".jpg, .png,.PNG, .jpeg"
             class="select-inp"
           />
-          <label for="select-file" id="select-file" class="select-btn"
-            >Choose an image</label
+          <label for="select-file" id="select-file" class="btn-primary label"
+            >Change image</label
           >
         </div>
       </section>
     </main>
+    <aside>
+      <h4 class="aside-head">Colors</h4>
+      <div class="colors" id="colors-container"></div>
+    </aside>
     <script src="script.js"></script>
   </body>
 </html>

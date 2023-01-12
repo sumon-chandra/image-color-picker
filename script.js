@@ -1,6 +1,7 @@
 // ============================== Display the Image =================
 const selectImg = document.getElementById("select-file");
 const displayImg = document.getElementById("display-img");
+const colorsContainer = document.getElementById("colors-container");
 
 // ** Select the image
 selectImg.addEventListener("change", (e) => {
@@ -62,7 +63,8 @@ function showImage(img) {
 // ============================== Pic the Color =================
 
 const eyeDropperBtn = document.getElementById("color-select-btn");
-const span = document.getElementById("result");
+let colors = getColor();
+displayColors();
 
 eyeDropperBtn.addEventListener("click", handleEyeDropperClick);
 
@@ -79,15 +81,43 @@ function handleEyeDropperClick() {
     .open({ signal: abordController.signal })
     .then((result) => {
       const hexColor = result.sRGBHex;
-      span.textContent = hexColor;
-      handleDisplayColor(hexColor);
+      colors.push(hexColor);
+      saveColor();
+      // handleColors();
+      // displayColors();
+      location.reload();
     })
-    .catch(() => {
-      console.log("Hello problem");
+    .catch((e) => {
+      console.log(e);
     });
   setTimeout(() => {
     abordController.abort();
   }, 5000);
 }
 
-function handleDisplayColor(color) {}
+// ** Save color to the local storage
+function saveColor() {
+  localStorage.setItem("COLOR", JSON.stringify(colors));
+}
+
+// ** Get the Color
+function getColor() {
+  return JSON.parse(localStorage.getItem("COLOR"));
+}
+
+function displayColors() {
+  colors.forEach((hexColor) => {
+    // * For conver Hex color code to RGB color code
+    let r = parseInt(hexColor.slice(1, 3), 16);
+    let g = parseInt(hexColor.slice(3, 5), 16);
+    let b = parseInt(hexColor.slice(5, 7), 16);
+    const div = document.createElement("div");
+    const hex = document.createElement("p");
+    const rgb = document.createElement("p");
+    div.className = "color";
+    hex.innerHTML = `HEX : ${hexColor}`;
+    rgb.innerHTML = `RGB : rgb(${r},${g}${b})`;
+    div.append(hex, rgb);
+    colorsContainer.appendChild(div);
+  });
+}
