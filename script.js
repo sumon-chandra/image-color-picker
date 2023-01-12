@@ -1,5 +1,4 @@
 // ============================== Display the Image =================
-const dropArea = document.getElementById("drop-area");
 const selectImg = document.getElementById("select-file");
 const displayImg = document.getElementById("display-img");
 
@@ -27,7 +26,7 @@ function checkBrowserSupported(fileList) {
 
 // ** Drug and Drop the image
 // * Drop area
-displayImg.addEventListener("dragover", (e) => {
+document.addEventListener("dragover", (e) => {
   e.stopPropagation();
   e.preventDefault();
   // * style the drop area
@@ -35,7 +34,7 @@ displayImg.addEventListener("dragover", (e) => {
   e.dataTransfer.dropEffect = "copy";
 });
 // * Drop the image
-displayImg.addEventListener("drop", (e) => {
+document.addEventListener("drop", (e) => {
   e.stopPropagation();
   e.preventDefault();
   const fileList = e.dataTransfer.files;
@@ -62,7 +61,7 @@ function showImage(img) {
 
 // ============================== Pic the Color =================
 
-const eyeDropperBtn = document.getElementById("start-btn");
+const eyeDropperBtn = document.getElementById("color-select-btn");
 const span = document.getElementById("result");
 
 eyeDropperBtn.addEventListener("click", handleEyeDropperClick);
